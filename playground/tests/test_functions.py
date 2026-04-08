@@ -24,13 +24,33 @@ def test_email_validation():
     """
     Test that the is_valid_email function correctly identifies valid and invalid email addresses.
     """
+    import pandas as pd
+
     valid_emails = [
         "jan.kowalski@gmail.com",
-        "krzysztof.nowak@outlook.pl",]
+        "krzysztof.nowak@outlook.pl"
+    ]
     invalid_emails = [
         "invalid.email",
-        "another.invalid.email"]
-    for email in valid_emails:
-        assert is_valid_email(email) == True
-    for email in invalid_emails:
-        assert is_valid_email(email) == False
+        "another.invalid.email"
+    ]
+
+    # Test valid emails
+    valid_df = spark.createDataFrame(
+        pd.DataFrame({"email": valid_emails})
+    )
+    valid_results = valid_df.select(
+        is_valid_email(valid_df["email"]).alias("is_valid")
+    ).collect()
+    for row in valid_results:
+        assert row["is_valid"] == True
+
+    # Test invalid emails
+    invalid_df = spark.createDataFrame(
+        pd.DataFrame({"email": invalid_emails})
+    )
+    invalid_results = invalid_df.select(
+        is_valid_email(invalid_df["email"]).alias("is_valid")
+    ).collect()
+    for row in invalid_results:
+        assert row["is_valid"] == False
