@@ -19,3 +19,18 @@ def test_masking_locations():
     """)
 
     assert validation_df.count() == 0
+
+def test_email_validation():
+    """
+    Test that the is_valid_email function correctly identifies valid and invalid email addresses.
+    """
+    valid_emails = [
+        "jan.kowalski@gmail.com",
+        "krzysztof.nowak@outlook.pl",]
+    invalid_emails = [
+        "invalid.email",
+        "another.invalid.email"]
+    for email in valid_emails:
+        assert is_valid_email(email) == True
+    for email in invalid_emails:
+        assert is_valid_email(email) == False
