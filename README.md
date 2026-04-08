@@ -19,6 +19,8 @@ This repository is dedicated to Databricks tasks.
 - `/scripts`: Utility scripts
 - `/queries`: Queries
 - `/docs`: Documentation
+- `/tests`: Tests
+- `/udfs`: UDF functions
 
 ## Requirements
 
