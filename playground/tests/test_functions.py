@@ -1,3 +1,6 @@
+from ..utilities.utils import is_valid_email
+
+
 def test_masking_locations():
     """
     Test that the masking_address function masks the address correctly.
