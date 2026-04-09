@@ -1,9 +1,0 @@
-Metadata-Version: 2.4
-Name: databricks_utils
-Version: 0.1.0
-Summary: My Databricks Spark playground and utilities
-Author: Piotr Kuźmiak
-Requires-Python: >=3.9
-Description-Content-Type: text/markdown
-Requires-Dist: pyspark
-Requires-Dist: pandas
