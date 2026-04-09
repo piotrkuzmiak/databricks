@@ -3,7 +3,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from utilities.udfs.functions import is_valid_email
+from databricks_sandbox.udfs.functions import is_valid_email
 
 
 def test_masking_locations():
